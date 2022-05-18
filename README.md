@@ -1,1 +1,2 @@
-20223051
+20223051 Gwon segeon
+Kookmin Univ. SW
