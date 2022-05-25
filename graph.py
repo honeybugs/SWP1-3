@@ -27,7 +27,22 @@ def application(environ, start_response):
             graph = plt.plot(x, y)
             plt.grid()
             fig.savefig('img/graph.png')
-        response_body = html
+            response_body = html
+        else:
+            response_body = b"""
+            <html>
+                <body>
+                    <form action="">
+                        y = <input type="number" name="a"> * x^2
+                        + <input type="number" name="b"> * x
+                        + <input type="number" name="c"><br><br>
+                        <input type="submit">
+                    </form>
+                    <h1>ERROR : NEED PARAMETERS.</h1>
+                </body>
+            </html>
+            """
+        
         start_response('200 OK', [
             ('Content-Type', 'text/html'),
             ('Content-Length', str(len(response_body)))
